@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Search from "../Search/Search";
 import { ShopContext } from "../../context/ShopContext";
 import Vector1 from "../../assets/Vector1.png";
 import Vector2 from "../../assets/Vector2.png";
@@ -11,7 +10,6 @@ import "./navbar.scss";
 
 const MenuIcon = styled.div`
   display: none;
-
   @media (max-width: 768px) {
     display: block;
     cursor: pointer;
@@ -42,7 +40,7 @@ const Navbar: React.FC = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const context = useContext(ShopContext);
-  const navigate = useNavigate();
+
 
   if (!context) {
     throw new Error("Navbar must be used within a ShopContextProvider");
@@ -63,9 +61,7 @@ const Navbar: React.FC = () => {
     0
   );
 
-  const handleSearch = (query: string) => {
-    navigate(`/search/${query}`);
-  };
+  
 
   return (
     <>
